@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTICS", "NTICS\NTICS.csproj", "{CD867DFB-CA51-4859-8ACF-CD9AC1E23378}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ntics", "NTICS\ntics.csproj", "{CD867DFB-CA51-4859-8ACF-CD9AC1E23378}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ntics.tests", "ntics.tests\ntics.tests.csproj", "{E919C7C2-CBC2-4E18-B175-37161D7C0A39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8760F4CD-699B-47DA-92C0-AEAEB1C95919}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{CD867DFB-CA51-4859-8ACF-CD9AC1E23378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD867DFB-CA51-4859-8ACF-CD9AC1E23378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD867DFB-CA51-4859-8ACF-CD9AC1E23378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E919C7C2-CBC2-4E18-B175-37161D7C0A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E919C7C2-CBC2-4E18-B175-37161D7C0A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E919C7C2-CBC2-4E18-B175-37161D7C0A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E919C7C2-CBC2-4E18-B175-37161D7C0A39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E919C7C2-CBC2-4E18-B175-37161D7C0A39} = {8760F4CD-699B-47DA-92C0-AEAEB1C95919}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07CB3016-F4CB-422E-846F-A03A104BDFAC}

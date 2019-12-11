@@ -2,35 +2,22 @@
 using System.Collections.Specialized;
 using System;
 
-using NTICS.CharExt;
-
-namespace NTICS.StringExt
+namespace ntics.ClassExtensions
 {
     public static class StringExtension
     {
-        public static string Parse(ref string value, char delimiter)
+        public static string Parse(this string value, char delimiter)
         {
             if (value.Trim().Length == 0) return "";
             string result = value.Substring(0, value.IndexOf(delimiter)).Trim();
-            value = value.Substring(value.IndexOf(delimiter) + 1);
             return result;
         }
-        public static string Parse(ref string value)
+        public static string Parse(this string value)
         {
             // Parse on default delimiter
-            return Parse(ref value, ';');
+            return value.Parse(';');
         }
-        public static string Parse(string value, char delimiter)
-        {
-            if (value.Trim().Length == 0) return "";
-            return value.Substring(0, value.IndexOf(';')).Trim();
-        }
-        public static string Parse(string value)
-        {
-            // Parse on default delimiter
-            return Parse(value, ';');
-        }
-        public static bool CheckString(string value, string check)
+        public static bool CheckString(this string value, string check)
         {
             foreach (char c in value)
             {
@@ -62,8 +49,6 @@ namespace NTICS.StringExt
             }
             return result;
         }
-
-
 
         public static string ToRussian(this string value)
         {

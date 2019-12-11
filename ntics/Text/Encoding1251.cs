@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NTICS
+namespace ntics.Text
 {
 
     public class Encoding1251 : Encoding

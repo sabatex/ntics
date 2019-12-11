@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NTICS
+namespace ntics.Text
 {
-    public class NTICSEncodingProvider : EncodingProvider
+    public class EncodingProvider1251 : EncodingProvider
     {
         public override Encoding GetEncoding(int codepage)
         {
