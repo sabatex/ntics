@@ -34,6 +34,21 @@ namespace ntics.DateTimeExtensions
         public static DateTimePeriod GetYear(DateTime date) => new DateTimePeriod(date.BeginOfYear(), date.EndOfYear());
         public static DateTimePeriod GetWeek(DateTime date) => new DateTimePeriod(date.BeginOfWeek(), date.EndOfWeek());
 
+        public static DateTimePeriod Parse(string value)
+        {
+            if (value.Length == 0)
+                throw new ArgumentNullException(nameof(value));
+            int pos = value.IndexOf(',');
+            if (pos != -1)
+            {
+                   string s1 = value.Substring(0, pos);
+                    DateTime? d1 = s1 == "null" ? new DateTime?() : DateTime.Parse(s1).BeginOfDay();
+                    string s2 = value.Substring(pos + 1);
+                    DateTime? d2 = s2 == "null" ? new DateTime?() : DateTime.Parse(s2).EndOfDay();
+                    return new DateTimePeriod(d1, d2);
+            }
+            return new DateTimePeriod();
+        }
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ntics.Controls.DateTimePeriod"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ntics.Controls"
+             mc:Ignorable="d" 
+             d:DesignWidth="800"
+             Name="dateTimePeriod">
+    <StackPanel Orientation="Horizontal">
+        <Label>From</Label>
+        <DatePicker Name="beginDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.Begin}"></DatePicker>
+        <Label>to</Label>
+        <DatePicker Name="endDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.End}"></DatePicker>
+        <Button Click="Button_Click">...</Button>
+    </StackPanel>
+</UserControl>
