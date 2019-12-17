@@ -30,7 +30,7 @@ namespace ntics.Controls
         {
             ItemsSourceProperty = DependencyProperty.Register(nameof(ItemsSource), typeof(System.Collections.IEnumerable), typeof(ComboBoxWithButton), new FrameworkPropertyMetadata(null, new PropertyChangedCallback(OnItemsSourceChanged)));
             SelectedItemProperty = DependencyProperty.Register(nameof(SelectedItem), typeof(object), typeof(ComboBoxWithButton));
-            ClickEvent = EventManager.RegisterRoutedEvent(nameof(Click), RoutingStrategy.Bubble, typeof(RoutedEventHandler),typeof(ComboBoxWithButton));
+            ButtonClickEvent = EventManager.RegisterRoutedEvent(nameof(ButtonClick), RoutingStrategy.Bubble, typeof(RoutedEventHandler),typeof(ComboBoxWithButton));
         }
 
         private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -51,17 +51,17 @@ namespace ntics.Controls
         }
 
 
-        public static readonly RoutedEvent ClickEvent;
-        public event System.Windows.RoutedEventHandler Click
+        public static readonly RoutedEvent ButtonClickEvent;
+        public event System.Windows.RoutedEventHandler ButtonClick
         {
-            add { AddHandler(ClickEvent, value); }
-            remove { RemoveHandler(ClickEvent, value); }
+            add { AddHandler(ButtonClickEvent, value); }
+            remove { RemoveHandler(ButtonClickEvent, value); }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             RoutedEventArgs args = new RoutedEventArgs();
-            args.RoutedEvent = ClickEvent;
+            args.RoutedEvent = ButtonClickEvent;
             RaiseEvent(args);
         }
     }
