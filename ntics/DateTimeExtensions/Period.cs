@@ -7,8 +7,8 @@ using System.Globalization;
 
 namespace ntics.DateTimeExtensions
 {
-    [TypeConverter(typeof(DateTimePeriodConverter))]
-    public class DateTimePeriod :ObservableObject
+    [TypeConverter(typeof(PeriodConverter))]
+    public class Period :ObservableObject
     {
         DateTime? begin;
         DateTime? end;
@@ -20,21 +20,21 @@ namespace ntics.DateTimeExtensions
         /// </summary>
         public readonly int MaxRange = 255;
 
-        public DateTimePeriod(){ }
-        public DateTimePeriod(DateTime date) : this(date.BeginOfDay(), date.EndOfDay()) { }
-        public DateTimePeriod(DateTime? beginDate, DateTime? endDate)
+        public Period(){ }
+        public Period(DateTime date) : this(date.BeginOfDay(), date.EndOfDay()) { }
+        public Period(DateTime? beginDate, DateTime? endDate)
         {
             Begin = beginDate;
             End = endDate;
         }
 
-        public static DateTimePeriod GetDay(DateTime date) => new DateTimePeriod(date.BeginOfDay(), date.EndOfDay());
-        public static DateTimePeriod GetMonth(DateTime date) => new DateTimePeriod(date.BeginOfMonth(), date.EndOfMonth());
-        public static DateTimePeriod GetQuarter(DateTime date) => new DateTimePeriod(date.BeginOfQuarter(), date.EndOfQuarter());
-        public static DateTimePeriod GetYear(DateTime date) => new DateTimePeriod(date.BeginOfYear(), date.EndOfYear());
-        public static DateTimePeriod GetWeek(DateTime date) => new DateTimePeriod(date.BeginOfWeek(), date.EndOfWeek());
+        public static Period GetDay(DateTime date) => new Period(date.BeginOfDay(), date.EndOfDay());
+        public static Period GetMonth(DateTime date) => new Period(date.BeginOfMonth(), date.EndOfMonth());
+        public static Period GetQuarter(DateTime date) => new Period(date.BeginOfQuarter(), date.EndOfQuarter());
+        public static Period GetYear(DateTime date) => new Period(date.BeginOfYear(), date.EndOfYear());
+        public static Period GetWeek(DateTime date) => new Period(date.BeginOfWeek(), date.EndOfWeek());
 
-        public static DateTimePeriod Parse(string value)
+        public static Period Parse(string value)
         {
             if (value.Length == 0)
                 throw new ArgumentNullException(nameof(value));
@@ -45,14 +45,14 @@ namespace ntics.DateTimeExtensions
                     DateTime? d1 = s1 == "null" ? new DateTime?() : DateTime.Parse(s1).BeginOfDay();
                     string s2 = value.Substring(pos + 1);
                     DateTime? d2 = s2 == "null" ? new DateTime?() : DateTime.Parse(s2).EndOfDay();
-                    return new DateTimePeriod(d1, d2);
+                    return new Period(d1, d2);
             }
-            return new DateTimePeriod();
+            return new Period();
         }
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            var p = (DateTimePeriod)obj;
+            var p = (Period)obj;
             return ((this.Begin == p.Begin) && (this.End == p.End));
         }
 
@@ -75,13 +75,13 @@ namespace ntics.DateTimeExtensions
             }
         }
 
-        public static bool operator ==(DateTimePeriod arg1, DateTimePeriod arg2)
+        public static bool operator ==(Period arg1, Period arg2)
         {
             if (arg1 == null) return arg2 == null;
             return arg1.Equals(arg2);
         }
 
-        public static bool operator !=(DateTimePeriod arg1, DateTimePeriod arg2)
+        public static bool operator !=(Period arg1, Period arg2)
         {
             if (arg1 == null) return arg2 != null;
             return !arg1.Equals(arg2);

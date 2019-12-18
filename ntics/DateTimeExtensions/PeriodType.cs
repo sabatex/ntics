@@ -6,7 +6,7 @@ using System.Text;
 namespace ntics.DateTimeExtensions
 {
     [DisplayEnum(Name ="Select period")]
-    public enum DateTimePeriodType
+    public enum PeriodType
     {
         [DisplayEnum(Name = "Довільний період")]
         None = 0,

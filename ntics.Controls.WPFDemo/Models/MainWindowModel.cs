@@ -8,10 +8,9 @@ namespace ntics.Controls.WPFDemo.Models
     public class MainWindowModel
     {
         public BindingList<DemoModel> ComboBoxItems { get; set; } = new BindingList<DemoModel>();
-        
         public DemoModel SelectedItem { get; set; }
-        
         public string SelectedFoleder { get; set; }
+        public Date
         public MainWindowModel()
         {
             ComboBoxItems = new BindingList<DemoModel>

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ntics.DateTimeExtensions
 {
-    public class DateTimePeriodConverter : TypeConverter
+    public class PeriodConverter : TypeConverter
     {
         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
         {
@@ -18,7 +18,7 @@ namespace ntics.DateTimeExtensions
         {
             if (destinationType == typeof(string))
             {
-                var dt = value as DateTimePeriod;
+                var dt = value as Period;
                 if (dt == null)
                     throw new ArgumentNullException();
 
@@ -52,14 +52,14 @@ namespace ntics.DateTimeExtensions
                             DateTime? d1 = s1 == "null" ? new DateTime?() : DateTime.Parse(s1).BeginOfDay();
                             string s2 = s.Substring(pos + 1);
                             DateTime? d2 = s2 == "null" ? new DateTime?() : DateTime.Parse(s2).EndOfDay();
-                            return new DateTimePeriod(d1, d2);
+                            return new Period(d1, d2);
                         }
                         catch
                         { }
                     }
                 }
             }
-            return new DateTimePeriod();
+            return new Period();
         }
     }
 

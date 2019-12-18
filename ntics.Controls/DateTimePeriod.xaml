@@ -5,13 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ntics.Controls"
              mc:Ignorable="d" 
-             d:DesignWidth="800"
+             d:DesignWidth="400"
              Name="dateTimePeriod">
-    <StackPanel Orientation="Horizontal">
-        <Label>From</Label>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
         <DatePicker Name="beginDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.Begin}"></DatePicker>
-        <Label>to</Label>
-        <DatePicker Name="endDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.End}"></DatePicker>
-        <Button Click="Button_Click">...</Button>
-    </StackPanel>
+        <Label Grid.Column="1">&lt;-&gt;</Label>
+        <DatePicker Grid.Column="2" Name="endDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.End}"></DatePicker>
+        <Button Grid.Column="3" Click="Button_Click" Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}">...</Button>
+    </Grid>
 </UserControl>
