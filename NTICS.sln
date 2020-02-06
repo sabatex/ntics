@@ -11,10 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8760F4CD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ntics.Controls", "ntics.Controls\ntics.Controls.csproj", "{AB9C064E-C9EF-4540-9138-19663CE856F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ntics.Controls.WPFDemo", "ntics.Controls.WPFDemo\ntics.Controls.WPFDemo.csproj", "{1350DF93-8746-40F3-8594-18637E46467B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ntics.Controls.WPFDemo", "ntics.Controls.WPFDemo\ntics.Controls.WPFDemo.csproj", "{1350DF93-8746-40F3-8594-18637E46467B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AB9C064E-C9EF-4540-9138-19663CE856F7} = {AB9C064E-C9EF-4540-9138-19663CE856F7}
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ntics.V1C77", "ntics.V1C77\ntics.V1C77.csproj", "{0A905B8E-06DD-4884-B639-05D26342CD2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{1350DF93-8746-40F3-8594-18637E46467B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1350DF93-8746-40F3-8594-18637E46467B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1350DF93-8746-40F3-8594-18637E46467B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A905B8E-06DD-4884-B639-05D26342CD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A905B8E-06DD-4884-B639-05D26342CD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A905B8E-06DD-4884-B639-05D26342CD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A905B8E-06DD-4884-B639-05D26342CD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

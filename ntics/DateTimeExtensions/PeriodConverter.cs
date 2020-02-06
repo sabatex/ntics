@@ -18,10 +18,7 @@ namespace ntics.DateTimeExtensions
         {
             if (destinationType == typeof(string))
             {
-                var dt = value as Period;
-                if (dt == null)
-                    throw new ArgumentNullException();
-
+                var dt = (Period)value;
                 var d1 = dt.Begin;
                 var s1 = d1 == null ? "null" : d1.Value.ToShortDateString();
                 var d2 = dt.End;

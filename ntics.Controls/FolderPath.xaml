@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox Grid.Column="0" Text="{Binding ElementName=folderPathControl, Path=Path}"></TextBox>
+        <TextBox Grid.Column="0" Text="{Binding ElementName=folderPathControl, Path=SelectedFolder}"></TextBox>
         <Button Grid.Column="1" Click="Button_Click">...</Button>
     </Grid>
 </UserControl>

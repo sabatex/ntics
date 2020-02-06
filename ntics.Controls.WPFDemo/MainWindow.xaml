@@ -6,29 +6,77 @@
         xmlns:local="clr-namespace:ntics.Controls.WPFDemo"
         xmlns:ntics ="clr-namespace:ntics.Controls;assembly=ntics.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400">
+        Title="MainWindow" Width="889" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border BorderThickness="2" BorderBrush="Black" Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="2" BorderBrush="Black" Margin="5" CornerRadius="5">
             <StackPanel Margin="5">
                 <Label HorizontalAlignment="Center">Test ComboBoxWithButton</Label>
-                <ntics:ComboBoxWithButton ItemsSource="{Binding Path=ComboBoxItems}"  SelectedItem="{Binding Path=SelectedItem}" ButtonClick="Button_Click_1"></ntics:ComboBoxWithButton>
+                <ntics:ComboBoxWithButton FontSize="30" ItemsSource="{Binding Path=ComboBoxItems}"  SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay}" ButtonClick="Button_Click_1"></ntics:ComboBoxWithButton>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>Selected item</Label>
+                    <Label Grid.Column="1" Content="{Binding Path=SelectedItem}"/>
+                </Grid>
+
             </StackPanel>
         </Border>
-        <Border BorderThickness="2" BorderBrush="Black" Margin="5" Grid.Row="1">
+        <Border  Grid.Column="1" BorderThickness="2" BorderBrush="Black" Margin="5"  CornerRadius="5">
             <StackPanel Margin="5">
                 <Label HorizontalAlignment="Center">Test FolderPath</Label>
-                <ntics:FolderPath Path="{Binding Path=SelectedFolder}"></ntics:FolderPath>
+                <ntics:FolderPath SelectedFolder="{Binding Path=FolderPath}"></ntics:FolderPath>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>Selected Folder</Label>
+                    <Label Grid.Column="1" Content="{Binding Path=FolderPath}"/>
+                </Grid>
+
             </StackPanel>
         </Border>
-        <Border BorderThickness="2" BorderBrush="Black" Margin="5" Grid.Row="2">
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black" Margin="5"  CornerRadius="5">
             <StackPanel Margin="5">
                 <Label HorizontalAlignment="Center">Test DateTimePeriod</Label>
-                <ntics:DateTimePeriod ></ntics:DateTimePeriod>
+                <ntics:DateTimePeriod Name="P1" Period="{Binding Path=DatePeriod,Mode=TwoWay}"></ntics:DateTimePeriod>
+                <ntics:DateTimePeriodEditBox Name="P2" Period="{Binding Path=DatePeriod}" ></ntics:DateTimePeriodEditBox>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>Selected period</Label>
+                    <Label Grid.Column="1" Content="{Binding Path=DatePeriod}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="Black" Margin="5" CornerRadius="5">
+            <StackPanel Margin="5">
+                <Label HorizontalAlignment="Center">Test ReferenceItem</Label>
+                <ntics:ReferenceItem FontSize="30" ></ntics:ReferenceItem>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>Selected item</Label>
+                    <Label Grid.Column="1" Content="{Binding Path=SelectedItem}"/>
+                </Grid>
+
             </StackPanel>
         </Border>
 

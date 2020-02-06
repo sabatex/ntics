@@ -8,19 +8,18 @@ using System.Globalization;
 namespace ntics.DateTimeExtensions
 {
     [TypeConverter(typeof(PeriodConverter))]
-    public class Period :ObservableObject
+    public struct Period : IEquatable<Period>
     {
-        DateTime? begin;
-        DateTime? end;
-        public virtual DateTime? Begin { get => begin; set => SetProperty(ref begin, value); }
-        public virtual DateTime? End { get=>end; set=>SetProperty(ref end,value);}
+        public DateTime? Begin { get; set; }
+        public DateTime? End { get; set; }
+        //public virtual DateTime? Begin { get => begin; set => SetProperty(ref begin, value); }
+        //public virtual DateTime? End { get=>end; set=>SetProperty(ref end,value);}
 
         /// <summary>
         /// Max years range
         /// </summary>
-        public readonly int MaxRange = 255;
+        public const int MaxRange = 255;
 
-        public Period(){ }
         public Period(DateTime date) : this(date.BeginOfDay(), date.EndOfDay()) { }
         public Period(DateTime? beginDate, DateTime? endDate)
         {
@@ -52,6 +51,8 @@ namespace ntics.DateTimeExtensions
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
+            if (obj.GetType() != typeof(Period))
+                return false;
             var p = (Period)obj;
             return ((this.Begin == p.Begin) && (this.End == p.End));
         }
@@ -92,6 +93,11 @@ namespace ntics.DateTimeExtensions
             var s1 = Begin == null ? "null" : Begin.Value.ToShortDateString();
             var s2 = End == null ? "null" : End.Value.ToShortDateString();
             return string.Format("Period from {0} to {1}", s1, s2);
+        }
+
+        public bool Equals(Period other)
+        {
+            return Begin == other.Begin && End == other.End;
         }
     }
 

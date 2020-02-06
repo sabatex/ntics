@@ -14,9 +14,9 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <DatePicker Name="beginDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.Begin}"></DatePicker>
+        <DatePicker SelectedDate="{Binding ElementName=dateTimePeriod, Path=BeginDate}"></DatePicker>
         <Label Grid.Column="1">&lt;-&gt;</Label>
-        <DatePicker Grid.Column="2" Name="endDate" SelectedDate="{Binding ElementName=dateTimePeriod, Path=Period.End}"></DatePicker>
-        <Button Grid.Column="3" Click="Button_Click" Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}">...</Button>
+        <DatePicker Grid.Column="2" SelectedDate="{Binding ElementName=dateTimePeriod, Path=EndDate}"></DatePicker>
+        <Button Grid.Column="3" Click="Button_Click"  Width="{Binding Path=ActualHeight, RelativeSource={RelativeSource Self}}">...</Button>
     </Grid>
 </UserControl>

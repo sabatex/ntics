@@ -7,10 +7,11 @@ namespace ntics.Controls.WPFDemo.Models
     /// <summary>
     /// Demonstrate entity 
     /// </summary>
-    public class DemoModel
+    public class DemoModel:ObservableObject
     {
         public Guid Id { get; set; }
-        public string Value { get; set; }
+        string value;
+        public string Value { get=>value; set=>SetProperty(ref this.value,value); }
         public DemoModel()
         {
             Id = Guid.NewGuid();
@@ -20,5 +21,10 @@ namespace ntics.Controls.WPFDemo.Models
         {
             return Value;
         }
+
+ 
+
+
+
     }
 }

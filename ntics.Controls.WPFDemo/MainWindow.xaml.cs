@@ -1,6 +1,7 @@
 ﻿using ntics.Controls.WPFDemo.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,12 @@ namespace ntics.Controls.WPFDemo
             var editItems = new Views.EditComboboxItems();
             editItems.Owner = this;
             editItems.ShowDialog();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //DataContext = MainWindowModel.TestModel;
+
         }
     }
 }

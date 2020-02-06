@@ -26,6 +26,15 @@ namespace ntics.Controls
             InitializeComponent();
         }
 
+        public readonly static DependencyProperty SelectedFolderProperty =
+            DependencyProperty.Register(
+                nameof(SelectedFolder),
+                typeof(string),
+                typeof(FolderPath),
+                new FrameworkPropertyMetadata(
+                    @"C:\temp",
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                    new PropertyChangedCallback(OnFolderPathChanged)));
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -36,12 +45,12 @@ namespace ntics.Controls
             d.Title = "Вкажіть каталог для вивантаження податкових";
             //d.Description = Description;
             // Выбираем первоначальную папку.
-            d.SelectedPath = Path;
+            d.SelectedPath = SelectedFolder;
             // Показываем диалог.
             if (d.ShowDialog() == true)
             {
                 // Изменяем залоговок окна на выбранную папку.
-                Path = d.SelectedPath;
+                SelectedFolder = d.SelectedPath;
                 //    if (OnDirectoryChange != null)
                 //        OnDirectoryChange(this, new EventArgs());
                 //
@@ -49,23 +58,17 @@ namespace ntics.Controls
 
         }
 
-        static FolderPath()
-        {
-
-            FolderPathProperty = DependencyProperty.Register(nameof(Path),typeof(string),typeof(FolderPath),new FrameworkPropertyMetadata(@"C:\temp",FrameworkPropertyMetadataOptions.BindsTwoWayByDefault ,new PropertyChangedCallback(OnFolderPathChanged)));
-
-        }
 
         private static void OnFolderPathChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             FolderPath folderPathWPF = (FolderPath)d;
         }
 
-        public static DependencyProperty FolderPathProperty;
-        public string Path
+
+        public string SelectedFolder
         {
-            get =>(string)GetValue(FolderPathProperty);
-            set =>SetValue(FolderPathProperty,value);
+            get =>(string)GetValue(SelectedFolderProperty);
+            set =>SetValue(SelectedFolderProperty, value);
         }
 
 
