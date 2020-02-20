@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Collections.Specialized;
 using System;
+using System.Globalization;
 
 namespace ntics.ClassExtensions
 {
@@ -59,6 +60,16 @@ namespace ntics.ClassExtensions
             }
             return s.ToString();
         }
+        public static string ToUkrainian(this string value)
+        {
+            StringBuilder s = new StringBuilder(value);
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i] = s[i].UpperKeyToUkraine();
+            }
+            return s.ToString();
+        }
+
 
         public static string ToHeximal(this string value)
         {

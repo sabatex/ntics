@@ -23,9 +23,11 @@ namespace ntics.ClassExtensions
                 case 'I': return 'Ш';
                 case 'O': return 'Щ';
                 case 'P': return 'З';
+                case '[':
                 case '{': return 'Х';
+                case ']':
                 case '}': return 'Ъ';
-                case 'ї': return 'Ъ';
+                case 'Ї': return 'Ъ';
                 case 'A': return 'Ф';
                 case 'S':
                 case 'І': return 'Ы';
@@ -54,18 +56,9 @@ namespace ntics.ClassExtensions
 
         }
 
-        public static char UpperKeyToCulture(this char value, CultureInfo cultureInfo)
+        public static char UpperKeyToUkraine(this char value)
         {
-            if (cultureInfo == null)
-            {
-                throw new ArgumentNullException(nameof(cultureInfo));
-            }
-
             char k = Char.ToUpper(value, CultureInfo.CurrentCulture);
-            switch (cultureInfo.EnglishName)
-            {
-                case "UA-uk":
-                case "uk":
                     switch (k)
                     {
                         
@@ -80,12 +73,14 @@ namespace ntics.ClassExtensions
                         case 'I': return 'Ш';
                         case 'O': return 'Щ';
                         case 'P': return 'З';
+                        case '[':
                         case '{': return 'Х';
-                        case '}': return 'Ъ';
-                        case 'ї': return 'Ъ';
+                        case '}':
+                        case ']':
+                        case 'Ъ': return 'Ї';
                         case 'A': return 'Ф';
                         case 'S':
-                        case 'І': return 'Ы';
+                        case 'Ы': return 'І';
                         case 'D': return 'В';
                         case 'F': return 'А';
                         case 'G': return 'П';
@@ -95,7 +90,7 @@ namespace ntics.ClassExtensions
                         case 'L': return 'Д';
                         case ';': return 'Ж';
                         case '\'':
-                        case 'Є': return 'Э';
+                        case 'Э': return 'Є';
                         case 'Z': return 'Я';
                         case 'X': return 'Ч';
                         case 'C': return 'С';
@@ -111,53 +106,7 @@ namespace ntics.ClassExtensions
 
                     }
 
-                case "ru":
-                    switch (k)
-                    {
-                        case '`': return 'Ё';
-                        case 'Q': return 'Й';
-                        case 'W': return 'Ц';
-                        case 'E': return 'У';
-                        case 'R': return 'К';
-                        case 'T': return 'Е';
-                        case 'Y': return 'Н';
-                        case 'U': return 'Г';
-                        case 'I': return 'Ш';
-                        case 'O': return 'Щ';
-                        case 'P': return 'З';
-                        case '{': return 'Х';
-                        case '}': return 'Ъ';
-                        case 'ї': return 'Ъ';
-                        case 'A': return 'Ф';
-                        case 'S':
-                        case 'І': return 'Ы';
-                        case 'D': return 'В';
-                        case 'F': return 'А';
-                        case 'G': return 'П';
-                        case 'H': return 'Р';
-                        case 'J': return 'О';
-                        case 'K': return 'Л';
-                        case 'L': return 'Д';
-                        case ';': return 'Ж';
-                        case '\'':
-                        case 'Є': return 'Э';
-                        case 'Z': return 'Я';
-                        case 'X': return 'Ч';
-                        case 'C': return 'С';
-                        case 'V': return 'М';
-                        case 'B': return 'И';
-                        case 'N': return 'Т';
-                        case 'M': return 'Ь';
-                        case ',': return 'Б';
-                        case '.': return 'Ю';
 
-                        default: return k;
-                    }
-
-                default:
-                    return (k);
-
-            }
         }
     }
 }

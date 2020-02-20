@@ -52,7 +52,7 @@
             <StackPanel Margin="5">
                 <Label HorizontalAlignment="Center">Test DateTimePeriod</Label>
                 <ntics:DateTimePeriod Name="P1" Period="{Binding Path=DatePeriod,Mode=TwoWay}"></ntics:DateTimePeriod>
-                <ntics:DateTimePeriodEditBox Name="P2" Period="{Binding Path=DatePeriod}" ></ntics:DateTimePeriodEditBox>
+                <!--<ntics:DateTimePeriodEditBox Name="P2" Period="{Binding Path=DatePeriod}" ></ntics:DateTimePeriodEditBox>-->
 
                 <Grid>
                     <Grid.ColumnDefinitions>
